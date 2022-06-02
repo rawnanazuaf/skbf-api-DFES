@@ -57,8 +57,7 @@ class HomeController extends Controller
         // $token = User::where('id', $user_id['sales_id']);
         $firebaseToken = User::whereNotNull('device_token')->pluck('device_token')->all();
 
-        $SERVER_API_KEY = 'AAAAN7iGVy4:APA91bFtJDMAy5yX9K4Klo_HQKtyQcIx1RSzmrVRJj7YgXAur7Q8WISBMNskMUqcnTpUr0pwQfc3xQuY0SSW1N-7Qwpi8baRPVg55bcMuVNjnf3y4p0uqDudlja96mmADDVp4GYpx3H9';
-
+        $SERVER_API_KEY = config('api.FCM_API_KEY'); 
         $data = [
             "registration_ids" => $firebaseToken,
             "notification" => [

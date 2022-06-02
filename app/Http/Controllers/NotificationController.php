@@ -64,12 +64,9 @@ class NotificationController extends Controller
     {
         $data = $request->all();
         $firebaseToken = User::where('id', $data['id'])->pluck('device_token')->all();
-        // $firebaseToken = ['dSv8e3c04NhUnndG2wwAaZ:APA91bGdQ2SMtKfGNpvGNYugIjxF0-Fa9aYMDoOe3GgxwQ6RDbgRqL7kCOpELAQDcKJDbt4eBNd7eurs0Co5PxAjPxRighq5sTJhy3q0c-q3K_aq69IPljqeO2TWh0W74JVW_FcuD82v'];
-
+        
         $SERVER_API_KEY = config('api.FCM_API_KEY');
         // $firebaseToken = User::whereNotNull('device_token')->pluck('device_token')->all();
-
-        // $SERVER_API_KEY = 'AAAAN7iGVy4:APA91bFtJDMAy5yX9K4Klo_HQKtyQcIx1RSzmrVRJj7YgXAur7Q8WISBMNskMUqcnTpUr0pwQfc3xQuY0SSW1N-7Qwpi8baRPVg55bcMuVNjnf3y4p0uqDudlja96mmADDVp4GYpx3H9';
 
         $data = [
             "registration_ids" => $firebaseToken,
